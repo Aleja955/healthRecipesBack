@@ -22,6 +22,14 @@ public class RecetaService {
         return recetaRepository.save(receta);
     }
 
+    public void deleteReceta(Long id){
+        recetaRepository.deleteById(id);
+    }
+
+    public Receta updateReceta(Long id, Receta receta){
+        Receta existingReceta = recetaRepository.findById(id).orElseThrow(() -> new RuntimeException("Receta no encontrada"));
+        return existingReceta;
+    }
 
 
 }

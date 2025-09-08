@@ -26,4 +26,17 @@ public class RecetaController {
     public Receta createReceta(@RequestBody Receta receta){
         return recetaService.createReceta(receta);
     }
+
+    @DeleteMapping("/{id}")
+    public String deleteReceta(@PathVariable Long id){
+        recetaService.deleteReceta(id);
+        return "Receta eliminada con éxito";
+    }
+
+    @PutMapping("/{id}")
+    public String updateReceta(@PathVariable Long id, @RequestBody Receta receta) {
+        recetaService.updateReceta(id, receta);
+        return "Receta actualizada con éxito";
+    }
+
 }
