@@ -18,6 +18,10 @@ public class RecetaService {
         return recetaRepository.findAll();
     }
 
+    public Receta getRecetaById(Long id){
+        return recetaRepository.findById(id).orElse(null);
+    }
+
     public Receta createReceta(Receta receta){
         return recetaRepository.save(receta);
     }
@@ -29,6 +33,10 @@ public class RecetaService {
     public Receta updateReceta(Long id, Receta receta){
         Receta existingReceta = recetaRepository.findById(id).orElseThrow(() -> new RuntimeException("Receta no encontrada"));
         return existingReceta;
+    }
+
+    public Receta editReceta(Long id, Receta receta) {
+        return recetaRepository.save(receta);
     }
 
 

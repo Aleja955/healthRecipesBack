@@ -1,8 +1,10 @@
 package com.recetasBackend.recetas.controller;
 
+import com.recetasBackend.recetas.RecetasApplication;
 import com.recetasBackend.recetas.model.Receta;
 import com.recetasBackend.recetas.service.RecetaService;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -22,6 +24,11 @@ public class RecetaController {
         return recetaService.getAllRecetas();
     }
 
+    @GetMapping("/{id}")
+    public Receta getRecetaById(@PathVariable Long id){
+        return recetaService.getRecetaById(id);
+    }
+
     @PostMapping
     public Receta createReceta(@RequestBody Receta receta){
         return recetaService.createReceta(receta);
@@ -38,5 +45,7 @@ public class RecetaController {
         recetaService.updateReceta(id, receta);
         return "Receta actualizada con éxito";
     }
+
+
 
 }
