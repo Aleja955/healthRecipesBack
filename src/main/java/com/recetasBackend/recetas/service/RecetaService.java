@@ -30,10 +30,6 @@ public class RecetaService {
         recetaRepository.deleteById(id);
     }
 
-    public Receta updateReceta(Long id, Receta receta){
-        Receta existingReceta = recetaRepository.findById(id).orElseThrow(() -> new RuntimeException("Receta no encontrada"));
-        return existingReceta;
-    }
 
     public Receta editReceta(Long id, Receta receta) {
         return recetaRepository.save(receta);

@@ -40,11 +40,6 @@ public class RecetaController {
         return "Receta eliminada con éxito";
     }
 
-    @PutMapping("/{id}")
-    public String updateReceta(@PathVariable Long id, @RequestBody Receta receta) {
-        recetaService.updateReceta(id, receta);
-        return "Receta actualizada con éxito";
-    }
 
 
 
